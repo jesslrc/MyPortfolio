@@ -28,7 +28,7 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    String show(LoginDto loginDto, Model model, @RequestParam("unauthorized") boolean isUnauthorized) {
+    String show(LoginDto loginDto, Model model, @RequestParam(value = "unauthorized", defaultValue = "false") boolean isUnauthorized) {
         if (isUnauthorized) {
             model.addAttribute("unauthorized", true);
         }
