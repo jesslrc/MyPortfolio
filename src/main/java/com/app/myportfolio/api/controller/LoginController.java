@@ -40,7 +40,7 @@ public class LoginController {
         Cookie cookie = new Cookie(SESSION_TOKEN, null);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-        return "login";
+        return "redirect:/login";
     }
 
     @PostMapping("/login")

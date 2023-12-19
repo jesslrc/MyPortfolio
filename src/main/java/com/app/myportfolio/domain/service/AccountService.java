@@ -1,5 +1,6 @@
 package com.app.myportfolio.domain.service;
 
+import com.app.myportfolio.api.dto.UpdateAccountDto;
 import com.app.myportfolio.api.dto.inbound.CreateAccountDto;
 import com.app.myportfolio.api.dto.inbound.LoginDto;
 import com.app.myportfolio.domain.entity.Account;
@@ -35,6 +36,18 @@ public class AccountService {
                 ""
         );
         accountRepository.save(account);
+    }
+
+    public void updateUser(UpdateAccountDto updateAccountDto) {
+        accountRepository.findById(updateAccountDto.getId()).map(account -> {
+            account.setFirstName(updateAccountDto.getFirstName());
+            account.setLastName(updateAccountDto.getLastName());
+            account.setEmail(updateAccountDto.getEmail());
+            account.setPhone(updateAccountDto.getPhone());
+            account.setAbout(updateAccountDto.getAbout());
+            return account;
+        }).ifPresent(accountRepository::save);
+        //TODO maybe this could throw an exception on account not found
     }
 
     public String login(LoginDto loginDto) throws IncorrectCredentialsException {
