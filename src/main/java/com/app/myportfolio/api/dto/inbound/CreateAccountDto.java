@@ -1,6 +1,6 @@
-package com.app.myportfolio.bean;
+package com.app.myportfolio.api.dto.inbound;
 
-public class CreateAccount {
+public class CreateAccountDto {
     String firstName;
 
     String lastName;

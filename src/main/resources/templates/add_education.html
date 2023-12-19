@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Edit Education</title>
+</head>
+<body class="vh-100 gradient-custom">
+<style>
+    .gradient-custom {
+        background: #1177cb;
+        background: -webkit-linear-gradient(to right, rgba(17, 119, 203, 1), rgb(189, 219, 231));
+        background: linear-gradient(to right, rgba(17, 119, 203, 1), rgb(189, 219, 231))
+    }
+</style>
+<div th:insert="~{logo}"></div>
+<form th:action="@{/add-education}" th:object="${addEducationDto}" method="post">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-light text-black" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="mb-md-5 mt-md-4 pb-5">
+
+                            <h2 class="fw-bold mb-2 text-uppercase">Education</h2>
+                            <br><br>
+
+                            <div class="form-outline form-white mb-4">
+                                <label>Course Name</label>
+                                <input type="text" th:field="*{courseName}" class="form-control form-control-lg" required/>
+                            </div>
+
+                            <div class="form-outline form-white mb-4">
+                                <label>Institution</label>
+                                <input type="text" th:field="*{institution}" class="form-control form-control-lg" required/>
+                            </div>
+
+                            <div class="form-outline form-white mb-4">
+                                <label>Level of Education</label>
+                                <select type="text" th:field="*{educationLevel}" class="form-control form-control-lg" required>
+                                    <option value="Level of Education">Example: Certificate</option>
+                                    <option value="CERTIFICATE">Certificate</option>
+                                    <option value="DIPLOMA">Diploma</option>
+                                    <option value="DEGREE">Degree</option>
+                                    <option value="MASTER">Master</option>
+                                    <option value="PHD">PhD</option>
+                                </select>
+                            </div>
+
+                            <button class="btn btn-outline-secondary btn-lg px-5" type="submit">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

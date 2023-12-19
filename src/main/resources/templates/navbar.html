@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" >
-<head>
-    <meta charset="UTF-8">
-    <title>Header</title>
-</head>
-<body th:fragment="navbar" class="navbar">
-<div class="icon w-50 h-12">
-    <img th:src="@{/my-portfolio-icon.png}" >
+<div th:fragment="navbar">
+    <style>
+        .navbar {
+            padding: 0;
+            background: #1177cb;
+            background: -webkit-linear-gradient(to right, rgba(17, 119, 203, 1), rgb(189, 219, 231));
+            background: linear-gradient(to right, rgba(17, 119, 203, 1), rgb(189, 219, 231))
+        }
+    </style>
+    <nav class="navbar">
+            <div th:insert="~{logo}"></div>
+        <a type="button" th:href="@{/logout}" class="btn btn-outline-primary ms-1 me-4">Logout</a>
+    </nav>
 </div>
-<h2>MyPortfolio</h2>
-<div>
-    <a th:href="@{/home}">Home</a>
-    <a th:href="@{/profile}">Profile</a>
-    <a th:href="@{/portfolio}">Portfolio</a>
-    <a th:href="@{/contact-me}">Contact me</a>
-</div>
-</body>
-</html>
