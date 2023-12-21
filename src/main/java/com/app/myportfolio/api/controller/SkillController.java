@@ -42,8 +42,6 @@ public class SkillController {
         return showSkillsView();
     }
 
-
-
     @PostMapping("/add-skill")
     String process(AddSkillDto addSkillDto, @CookieValue(value = "session-token") String userId) {
         addSkillDto.setAccountId(userId);

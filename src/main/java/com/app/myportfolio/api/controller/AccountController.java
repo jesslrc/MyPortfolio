@@ -28,7 +28,7 @@ public class AccountController {
     String process(CreateAccountDto createAccountDto) {
         accountService.createUser(createAccountDto);
 
-        return "create_account";
+        return "redirect:/login";
     }
 
     @GetMapping("/profile/{userId}/edit-account")
